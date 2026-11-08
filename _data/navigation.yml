@@ -1,16 +1,20 @@
-
 main:
-  - title: "Home"
+  - title: "首页"
     url: /
+    i18n: "nav.home"
 
-  - title: "Blog"
+  - title: "博客"
     url: /blog/
+    i18n: "nav.blog"
 
-  - title: "Notes"
+  - title: "笔记"
     url: /notes/
+    i18n: "nav.notes"
 
-  - title: "Timeline"
+  - title: "时间线"
     url: /timeline/
+    i18n: "nav.timeline"
 
-  - title: "Guestbook"
+  - title: "留言板"
     url: /guestbook/
+    i18n: "nav.guestbook"
