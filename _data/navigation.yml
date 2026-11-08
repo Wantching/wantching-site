@@ -1,0 +1,16 @@
+
+main:
+  - title: "Home"
+    url: /
+
+  - title: "Blog"
+    url: /blog/
+
+  - title: "Notes"
+    url: /notes/
+
+  - title: "Timeline"
+    url: /timeline/
+
+  - title: "Guestbook"
+    url: /guestbook/
