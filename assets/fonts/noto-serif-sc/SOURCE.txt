@@ -1,0 +1,4 @@
+CSS source: https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400..700&display=swap
+License: https://raw.githubusercontent.com/google/fonts/main/ofl/notoserifsc/OFL.txt
+Downloaded: 2026-11-09
+Original webfont files, unmodified.

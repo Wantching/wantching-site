@@ -1,0 +1,116 @@
+.timeline {
+  position: relative;
+  margin-block: 0 1rem;
+}
+
+.timeline::before {
+  position: absolute;
+  inset-block: 0.8rem 0.6rem;
+  inset-inline-start: 4px;
+  inline-size: 1px;
+  background: #e4e7eb;
+  content: "";
+}
+
+.timeline .timeline__year {
+  position: relative;
+  margin: 0 0 0.85rem;
+  padding: 0;
+  padding-inline-start: 1.75rem;
+  border: 0;
+  color: #626a73;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.timeline__year::before {
+  position: absolute;
+  inset-block-start: calc(0.75em - 4.5px);
+  inset-inline-start: 0;
+  inline-size: 9px;
+  block-size: 9px;
+  border-radius: 50%;
+  background: #7a838e;
+  content: "";
+}
+
+.timeline .timeline__items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3.4rem minmax(0, 1fr);
+  column-gap: 0.75rem;
+  align-items: baseline;
+  margin: 0;
+  padding-block: 0.55rem;
+  padding-inline-start: 1.75rem;
+  overflow-wrap: anywhere;
+}
+
+.timeline__group + .timeline__group {
+  padding-block-start: 1.75rem;
+}
+
+.timeline__item::before {
+  position: absolute;
+  inset-block-start: 1.1rem;
+  inset-inline-start: 1px;
+  box-sizing: border-box;
+  inline-size: 7px;
+  block-size: 7px;
+  border: 1px solid #a4abb3;
+  border-radius: 50%;
+  background: #fff;
+  content: "";
+}
+
+.timeline__date {
+  display: block;
+  color: #6f777d;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.7;
+}
+
+.timeline__body {
+  min-width: 0;
+}
+
+.timeline .timeline__title {
+  margin: 0;
+  color: #50565e;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.timeline__title > a:not(.anchorjs-link) {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #bdbdbd;
+  text-underline-offset: 0.2em;
+}
+
+.timeline__description {
+  margin-block-start: 0.4rem;
+  color: #626a73;
+  font-size: 0.9em;
+  line-height: 1.7;
+}
+
+.timeline__description > :last-child {
+  margin-block-end: 0;
+}
+
+@media (max-width: 30em) {
+  .timeline__item {
+    grid-template-columns: 2.7rem minmax(0, 1fr);
+    column-gap: 0.5rem;
+  }
+}

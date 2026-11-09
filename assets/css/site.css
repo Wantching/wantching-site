@@ -1,0 +1,165 @@
+/* Shared typography and quiet, monochrome page framing. */
+html {
+  font-size: 16px;
+}
+
+@media (min-width: 48em) {
+  html {
+    font-size: 18px;
+  }
+}
+
+body {
+  color: #50565e;
+  line-height: 1.75;
+}
+
+.masthead,
+.page__footer,
+.home-page #main,
+.content-page #main {
+  animation: none;
+}
+
+.masthead {
+  border-bottom-color: #eee;
+}
+
+.masthead__inner-wrap {
+  max-width: 1200px;
+  padding: 18px 24px;
+  align-items: center;
+  font-size: 16px;
+}
+
+.greedy-nav .site-title {
+  margin-inline-end: 1.5rem;
+  color: #6f777d;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.greedy-nav .visible-links a {
+  margin-inline: 0.75rem;
+  padding-block: 0.2rem;
+  color: #6f777d;
+}
+
+.greedy-nav .visible-links a::before {
+  display: none;
+}
+
+.greedy-nav .masthead__menu-item > a[aria-current] > span[data-i18n],
+.greedy-nav .visible-links a:hover > span[data-i18n] {
+  color: #535c65;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.4em;
+}
+
+.greedy-nav a:focus-visible {
+  outline: 2px solid #666;
+  outline-offset: 4px;
+}
+
+.language-switcher {
+  color: #6f777d;
+  font-size: 14px;
+}
+
+/* These layouts opt in explicitly, preserving the theme's post/TOC layouts. */
+.home-page #main,
+.content-page #main {
+  max-width: 748px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.home-page #main > .page,
+.content-page #main > .page,
+.content-page #main > .archive {
+  float: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.home-page .page__inner-wrap,
+.content-page .page__inner-wrap {
+  float: none;
+  margin-top: 0;
+}
+
+.content-page #main {
+  padding-block: 3rem;
+}
+
+.content-page .page__title {
+  margin-bottom: 1.25rem;
+  font-size: 1.75rem;
+  color: #50565e;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.home-page .initial-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-page #main {
+  display: flex;
+  flex: 1 0 auto;
+  align-items: center;
+  width: 100%;
+  padding-block: 3rem;
+}
+
+.home-page #home-greeting {
+  margin: 0;
+  color: #50565e;
+  font-size: clamp(2rem, 3vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: center;
+}
+
+/* A quiet footer, centered beneath the page's reading column. */
+.page__footer {
+  margin-top: 0;
+  border-top: 0;
+  background: #fff;
+  color: #6f777d;
+}
+
+.page__footer footer {
+  max-width: 776px;
+  margin: 0 auto;
+  padding: 24px 24px 28px;
+  font-size: 13px;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.page__footer-follow ul {
+  margin: 0 0 6px;
+}
+
+.page__footer-follow li {
+  padding-block: 0;
+  font-size: inherit;
+  text-transform: none;
+}
+
+.page__footer-follow strong,
+.page__footer-follow a {
+  font-weight: 400;
+}
+
+.page__footer-copyright {
+  font-size: inherit;
+}
+
+.page__footer .social-icons i {
+  color: inherit;
+}

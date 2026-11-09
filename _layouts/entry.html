@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<main id="main">
+  <article class="page">
+    <div class="page__inner-wrap">
+      <header>
+        <h1 id="page-title" class="page__title"{% if page.content_language %} lang="{{ page.content_language | escape }}"{% endif %}>{{ page.title | escape }}</h1>
+        <p class="entry-date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time></p>
+      </header>
+      <section class="page__content"{% if page.content_language %} lang="{{ page.content_language | escape }}"{% endif %}>
+        {{ content }}
+      </section>
+      <nav class="entry-return">
+        {% if page.collection == "notes" %}
+          <a href="{{ '/notes/' | relative_url }}" data-i18n="ui.back_to_notes">返回笔记</a>
+        {% else %}
+          <a href="{{ '/blog/' | relative_url }}" data-i18n="ui.back_to_blog">返回博客</a>
+        {% endif %}
+      </nav>
+    </div>
+  </article>
+</main>

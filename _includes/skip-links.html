@@ -1,0 +1,8 @@
+{% assign default_ui = site.data.i18n[site.locale] | default: site.data.i18n['zh-CN'] %}
+<nav class="skip-links" aria-label="{{ default_ui.ui.skip_links | default: '页面跳转' | escape }}" data-i18n-aria-label="ui.skip_links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut" data-i18n="ui.skip_navigation">{{ default_ui.ui.skip_navigation | default: "转到主导航栏" }}</a></li>
+    <li><a href="#main" class="screen-reader-shortcut" data-i18n="ui.skip_content">{{ default_ui.ui.skip_content | default: "转到内容" }}</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut" data-i18n="ui.skip_footer">{{ default_ui.ui.skip_footer | default: "转到底部" }}</a></li>
+  </ul>
+</nav>

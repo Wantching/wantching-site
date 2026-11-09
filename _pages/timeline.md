@@ -1,14 +1,12 @@
 ---
-layout: single
-title: "Timeline"
+layout: listing
+title: "时间线"
+ui_title: "nav.timeline"
 permalink: /timeline/
 author_profile: false
+classes: content-page
+page_css:
+  - /assets/css/timeline.css
 ---
 
-这里记录我学习、生活与成长中的一些重要时刻。
-
-## 2026
-
-**2026-11-08**
-
-开始搭建自己的个人网站。
+{% include timeline.html %}

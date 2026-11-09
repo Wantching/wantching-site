@@ -1,8 +1,9 @@
 title: "Wantching"
 description: "My personal website"
 
-url: ""
+url: "https://wantching.site"
 baseurl: ""
+timezone: "Asia/Shanghai"
 
 locale: "zh-CN"
 minimal_mistakes_skin: "default"
@@ -16,3 +17,36 @@ markdown: kramdown
 
 include:
   - _pages
+
+collections:
+  notes:
+    output: true
+    permalink: /notes/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: entry
+      author_profile: false
+      classes: content-page
+      content_language: zh-CN
+      permalink: /blog/:title/
+      nav_section: /blog/
+      page_css:
+        - /assets/css/entry.css
+  - scope:
+      path: ""
+      type: notes
+    values:
+      layout: entry
+      author_profile: false
+      classes: content-page
+      content_language: zh-CN
+      nav_section: /notes/
+      page_css:
+        - /assets/css/entry.css
+
+exclude:
+  - README.md

@@ -9,15 +9,41 @@ zh-CN:
   language:
     label: "界面语言"
 
+  home:
+    greeting: "你好，我是 Wantching。"
+
+  notes:
+    intro: "目前还没有发布笔记。"
+
+  timeline:
+    site_started: "开始搭建个人网站"
+    empty: "还没有时间线记录。"
+
+  guestbook:
+    welcome: "欢迎来到我的留言板。"
+    invitation: "如果你有什么想法、建议，或者只是想打个招呼，都欢迎在这里留下文字。"
+    pending: "留言功能即将开放。"
+
   ui:
     primary_navigation: "主导航"
     toggle_menu: "切换菜单"
     search: "搜索"
     no_posts: "目前还没有发布文章。"
+    back_to_blog: "返回博客"
+    back_to_notes: "返回笔记"
     recent_posts: "最近文章"
     read_more: "阅读全文"
     previous: "上一篇"
     next: "下一篇"
+    skip_links: "页面跳转"
+    skip_navigation: "转到主导航栏"
+    skip_content: "转到内容"
+    skip_footer: "转到底部"
+
+  footer:
+    follow: "关注："
+    feed: "RSS 订阅"
+    powered_by: "技术支持："
 
 en:
   nav:
@@ -30,12 +56,38 @@ en:
   language:
     label: "Interface language"
 
+  home:
+    greeting: "Hello, I'm Wantching."
+
+  notes:
+    intro: "No notes yet."
+
+  timeline:
+    site_started: "Started building a personal website"
+    empty: "No timeline entries yet."
+
+  guestbook:
+    welcome: "Welcome to my guestbook."
+    invitation: "If you have an idea or suggestion, or simply want to say hello, feel free to leave a message."
+    pending: "The guestbook is coming soon."
+
   ui:
     primary_navigation: "Primary navigation"
     toggle_menu: "Toggle menu"
     search: "Search"
     no_posts: "No posts yet."
+    back_to_blog: "Back to Blog"
+    back_to_notes: "Back to Notes"
     recent_posts: "Recent Posts"
     read_more: "Read More"
     previous: "Previous"
     next: "Next"
+    skip_links: "Skip links"
+    skip_navigation: "Skip to primary navigation"
+    skip_content: "Skip to content"
+    skip_footer: "Skip to footer"
+
+  footer:
+    follow: "Follow:"
+    feed: "RSS Feed"
+    powered_by: "Powered by"

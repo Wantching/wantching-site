@@ -1,0 +1,30 @@
+{% assign events = site.data.timeline | sort: "date" | reverse %}
+{% if events.size > 0 %}
+  {% assign years = events | group_by_exp: "event", "event.date | date: '%Y'" %}
+  <div class="timeline">
+    {% for year in years %}
+      <section class="timeline__group" aria-labelledby="timeline-year-{{ year.name }}">
+        <h2 class="timeline__year" id="timeline-year-{{ year.name }}">{{ year.name }}</h2>
+        <ol class="timeline__items" role="list">
+          {% for event in year.items %}
+            <li class="timeline__item"{% if event.content_language %} lang="{{ event.content_language | escape }}"{% endif %}>
+              <time class="timeline__date" datetime="{{ event.date | date: '%Y-%m-%d' }}">{{ event.date | date: "%m-%d" }}</time>
+              <div class="timeline__body">
+                <h3 class="timeline__title">
+                  {% if event.url %}<a href="{{ event.url | relative_url | escape }}">{% endif %}
+                    <span{% if event.title_i18n %} data-i18n="{{ event.title_i18n | escape }}"{% endif %}>{{ event.title | escape }}</span>
+                  {% if event.url %}</a>{% endif %}
+                </h3>
+                {% if event.description %}
+                  <div class="timeline__description">{{ event.description | markdownify }}</div>
+                {% endif %}
+              </div>
+            </li>
+          {% endfor %}
+        </ol>
+      </section>
+    {% endfor %}
+  </div>
+{% else %}
+  <p data-i18n="timeline.empty">还没有时间线记录。</p>
+{% endif %}

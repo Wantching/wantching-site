@@ -1,7 +1,29 @@
 <link rel="stylesheet" href="{{ '/assets/css/language.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+{% for stylesheet in page.page_css %}
+<link rel="stylesheet" href="{{ stylesheet | relative_url | escape }}">
+{% endfor %}
+
+{% if page.ui_title %}
+<meta name="ui-title-key" content="{{ page.ui_title | escape }}">
+<meta name="ui-site-title" content="{{ site.title | escape }}">
+{% endif %}
+{% if page.content_language %}
+<meta name="page-content-language" content="{{ page.content_language | escape }}">
+{% endif %}
+
+{% if page.collection == "posts" %}
+  {% assign default_navigation_section = "/blog/" %}
+{% else %}
+  {% assign default_navigation_section = page.url %}
+{% endif %}
+{% assign navigation_section = page.nav_section | default: default_navigation_section %}
+<meta name="navigation-page" content="{{ page.url | relative_url | escape }}">
+<meta name="navigation-section" content="{{ navigation_section | relative_url | escape }}">
 
 <script type="application/json" id="site-translations">
   {{ site.data.i18n | jsonify | replace: '<', '\u003c' }}
 </script>
 
 <script src="{{ '/assets/js/language.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>

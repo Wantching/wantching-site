@@ -1,0 +1,25 @@
+.content-page .page__title {
+  overflow-wrap: anywhere;
+}
+
+.entry-date {
+  margin: -0.5rem 0 2rem;
+  color: #6f777d;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.page__content {
+  overflow-wrap: anywhere;
+}
+
+.entry-return {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eceef0;
+  font-size: 0.85rem;
+}
+
+.entry-return a {
+  color: #6f777d;
+}

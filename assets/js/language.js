@@ -17,6 +17,22 @@
 
   const storageKey = "wantching.uiLanguage";
   const buttons = document.querySelectorAll("[data-set-language]");
+  const titleKey = document.querySelector('meta[name="ui-title-key"]')?.content;
+  const siteTitle = document.querySelector('meta[name="ui-site-title"]')?.content;
+  const contentLanguage = document.querySelector('meta[name="page-content-language"]')?.content;
+
+  // Only explicitly marked interface pages opt into heading translation.
+  if (titleKey) {
+    const heading = document.getElementById("page-title");
+    const titleTarget = heading?.querySelector("a") || heading;
+    if (titleTarget) titleTarget.setAttribute("data-i18n", titleKey);
+  }
+
+  // Content keeps its own language when the surrounding interface changes.
+  if (contentLanguage) {
+    const content = document.querySelector(".page__content");
+    if (content) content.setAttribute("lang", contentLanguage);
+  }
 
   function lookup(language, key) {
     return key.split(".").reduce(
@@ -32,8 +48,18 @@
 
     document.querySelectorAll("[data-i18n]").forEach((element) => {
       const text = lookup(language, element.getAttribute("data-i18n"));
-      if (typeof text === "string") element.textContent = text;
+      if (typeof text === "string") {
+        element.textContent = text;
+        element.setAttribute("lang", language);
+      }
     });
+
+    if (titleKey) {
+      const title = lookup(language, titleKey);
+      if (typeof title === "string") {
+        document.title = siteTitle ? title + " - " + siteTitle : title;
+      }
+    }
 
     const attributes = [
       ["data-i18n-aria-label", "aria-label"],

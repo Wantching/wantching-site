@@ -10,7 +10,7 @@
 
 ## 一、项目背景与最终目标
 
-我正在从零搭建一个打算长期使用的个人网站，未来可能绑定自己的独立域名 `wantching.com`。
+我正在从零搭建一个打算长期使用的个人网站，正式域名为 `wantching.site`（2026-11-09 更正：已在腾讯云注册）。
 
 此前已有的网站和仓库为：
 
@@ -670,7 +670,7 @@ fatal: not a git repository (or any of the parent directories): .git
 3. 检查哪些构建产物、缓存和本地依赖应排除在提交之外。
 4. 确定远程仓库及 Pages 部署方式。
 5. 新站验收后再考虑替换旧站。
-6. 将来再处理 `wantching.com` 域名绑定。
+6. 将来再处理 `wantching.site` 域名绑定。
 
 连接 GitHub 时优先采用 SSH。
 
