@@ -1,0 +1,56 @@
+{% assign locale = include.locale | default: site.locale %}
+{% capture logo_path %}{{ site.logo }}{% endcapture %}
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="主导航" data-i18n-aria-label="ui.primary_navigation">
+        {% unless logo_path == empty %}
+          <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title | escape }}"></a>
+        {% endunless %}
+        <a class="site-title" href="{{ '/' | relative_url }}">
+          {{ site.masthead_title | default: site.title | escape_once | strip }}
+          {% if site.subtitle %}<span class="site-subtitle">{{ site.subtitle | escape_once | strip }}</span>{% endif %}
+        </a>
+        <ul class="visible-links">
+          {%- for link in site.data.navigation.main -%}
+            <li class="masthead__menu-item">
+              <a
+                href="{{ link.url | relative_url }}"
+                {% if link.description %} title="{{ link.description | escape }}"{% endif %}
+                {% if link.target %} target="{{ link.target | escape }}"{% endif %}
+              >
+                <span{% if link.i18n %} data-i18n="{{ link.i18n | escape }}"{% endif %}>{{ link.title | escape }}</span>
+                {% if link.i18n %}
+                  {% assign nav_key = link.i18n | remove_first: "nav." %}
+                  {% comment %}Keep GreedyNav's cached widths stable when the language changes.{% endcomment %}
+                  {% for language_entry in site.data.i18n %}
+                    <span class="nav-label-measure" aria-hidden="true">{{ language_entry[1].nav[nav_key] | default: link.title | escape }}</span>
+                  {% endfor %}
+                {% endif %}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+        {% if site.search == true %}
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden" data-i18n="ui.search">{{ site.data.ui-text[locale].search_label | default: "搜索" }}</span>
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </button>
+        {% endif %}
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden" data-i18n="ui.toggle_menu">{{ site.data.ui-text[locale].menu_label | default: "切换菜单" }}</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+
+    <div class="language-switcher" data-language-switcher role="group"
+         aria-label="界面语言" data-i18n-aria-label="language.label" hidden>
+      <button type="button" data-set-language="zh-CN" lang="zh-CN" aria-pressed="true">中文</button>
+      <span aria-hidden="true">/</span>
+      <button type="button" data-set-language="en" lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</div>

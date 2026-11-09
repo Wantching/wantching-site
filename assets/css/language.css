@@ -1,0 +1,57 @@
+.masthead__menu {
+  flex: 1 1 0%;
+  min-width: 0;
+  width: auto;
+}
+
+.language-switcher {
+  position: relative;
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 0.25rem;
+  margin-inline-start: 0.75rem;
+  white-space: nowrap;
+  color: #777;
+  font-size: 0.8em;
+}
+
+.language-switcher[hidden] {
+  display: none;
+}
+
+.language-switcher button {
+  border: 0;
+  border-radius: 0;
+  padding: 0.25rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.language-switcher button[aria-pressed="true"] {
+  color: #111;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.language-switcher button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.greedy-nav .masthead__menu-item > a {
+  display: grid;
+}
+
+.greedy-nav .masthead__menu-item > a > span {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+}
+
+.greedy-nav .nav-label-measure {
+  visibility: hidden;
+  pointer-events: none;
+}
