@@ -366,10 +366,10 @@ collections:
   title: "开始搭建个人网站"
 ```
 
-模板只读取这份数据，按日期倒序并按年份分组；页面再显示月日和事件标题。核心排序可以写成：
+模板只读取这份数据，按日期从早到晚排列并按年份分组；页面再显示月日和事件标题。新事件接在下方，与时间线底部延伸的方向一致。核心排序可以写成：
 
 ```liquid
-{% assign events = site.data.timeline | sort: "date" | reverse %}
+{% assign events = site.data.timeline | sort: "date" %}
 {% assign years = events | group_by_exp: "event", "event.date | date: '%Y'" %}
 ```
 

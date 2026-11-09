@@ -1,4 +1,4 @@
-{% assign events = site.data.timeline | sort: "date" | reverse %}
+{% assign events = site.data.timeline | sort: "date" %}
 {% if events.size > 0 %}
   {% assign years = events | group_by_exp: "event", "event.date | date: '%Y'" %}
   <div class="timeline">
