@@ -1,6 +1,8 @@
 # Wantching 网站更新说明
 
-平时的流程是：**写内容 → 保存并预览 → 提交并上传 → GitHub 自动发布**。自动发布需要先完成本文末尾的一次性配置。
+网站已经上线：<https://wantching.site>。平时的流程是：**在 Ubuntu 写内容 → 保存并预览 → 提交并上传 → GitHub 自动发布**。
+
+从零建站的完整通用流程与本次问题记录，见 [建站笔记](_notes/build-personal-site-with-jekyll-github-pages.md)。
 
 ## 文件放在哪里
 
@@ -58,7 +60,7 @@ bundle exec jekyll serve
 
 然后打开 <http://localhost:4000>。保存文章后，等终端重新生成页面，再刷新浏览器即可。停止预览按 `Ctrl+C`。
 
-新增笔记目录的设置已经写好；如果你原来开着预览服务，这次先停止，再重新运行上面的命令。
+修改 `_config.yml` 等全局配置后，先停止预览，再重新启动。
 
 ## 图片、示例和时间线
 
@@ -69,10 +71,10 @@ bundle exec jekyll serve
 
 ## 以后怎样发布更新
 
-首次配置完成后，在 Windows PowerShell 里执行：
+现在 Ubuntu 的 SSH 已经配置好，可以在 Ubuntu 终端直接执行：
 
-```powershell
-cd E:\projects\wantching-site
+```bash
+cd /mnt/e/projects/wantching-site
 git add .
 git commit -m "更新网站内容"
 git push
@@ -82,23 +84,23 @@ git push
 
 上传后，到仓库的 Actions 页面查看结果。`Deploy Jekyll site to Pages` 显示绿色勾，表示这次网站更新已发布。只保存文件或只执行 `commit`，还没有上传。
 
-## 第一次连接与发布（只做一次）
+## 第一次连接与发布（已完成，重建时参考）
 
-使用已经建好的公开空仓库：<https://github.com/Wantching/wantching-site>。
+当前公开仓库：<https://github.com/Wantching/wantching-site>。已经首次上传，`main` 跟踪 `origin/main`。
 
-目前已验证能连接 GitHub 的密钥在 Windows 环境里，因此以下命令在 Windows PowerShell 执行；Ubuntu / WSL 继续用于本地预览。
+Windows 与 Ubuntu 的 SSH 配置彼此独立。本次已经在 Ubuntu 完成密钥配置、权限设置和 GitHub 服务器指纹核对，`ssh -T git@github.com` 已验证成功，后续预览与上传都可以在 Ubuntu 进行。
 
-1. 关联仓库地址（只执行一次）：
+1. 下面的关联操作只适用于尚未设置 `origin` 的新本地仓库；当前项目已经完成：
 
-   ```powershell
-   cd E:\projects\wantching-site
+   ```bash
+   cd /mnt/e/projects/wantching-site
    git remote add origin git@github.com:Wantching/wantching-site.git
    git remote -v
    ```
 
 2. 保存并首次上传：
 
-   ```powershell
+   ```bash
    git add .
    git commit -m "chore: prepare GitHub Pages deployment"
    git push -u origin main
@@ -112,27 +114,28 @@ git push
 
 自动发布的作用：GitHub 收到 `main` 分支的新版本后，在它的服务器上安装项目依赖、运行 Jekyll 生成网页，再交给 GitHub Pages 发布。这个过程在 GitHub 上运行，完成上传后电脑可以关机。
 
-## 绑定腾讯云域名 wantching.site（只做一次）
+## 腾讯云域名 wantching.site（已完成，当前记录）
 
-1. 在 GitHub 账号的 `Settings → Pages` 中添加并验证 `wantching.site`。按页面提示，在腾讯云的域名解析中添加对应的 TXT 记录，名称和记录值照 GitHub 显示的填写。
+1. 在 GitHub 账号的 `Settings → Pages` 中添加并验证 `wantching.site`。验证已完成，对应 TXT 记录继续保留。GitHub 给出完整名称时，腾讯云“主机记录”只填自动补全域名前面的部分；记录类型选 TXT，记录值填 GitHub 给出的验证码。
 
 2. 打开网站仓库的 `Settings → Pages → Custom domain`，填写 `wantching.site` 并保存。
 
-3. 在腾讯云 **云解析 DNS / DNSPod → wantching.site → 记录管理** 添加以下记录，线路和 TTL 保持默认。表中每一行都是单独的一条记录：
+3. 腾讯云 **云解析 DNS / DNSPod → wantching.site → 记录管理** 当前使用以下记录，线路和 TTL 保持默认：
 
    | 主机记录 | 记录类型 | 记录值 |
    | --- | --- | --- |
    | @ | A | 185.199.108.153 |
    | @ | A | 185.199.109.153 |
-   | @ | A | 185.199.110.153 |
-   | @ | A | 185.199.111.153 |
    | www | CNAME | wantching.github.io |
+   | _github-pages-challenge-Wantching | TXT | GitHub 提供的验证值，继续保留 |
 
-   `@` 表示 `wantching.site`，`www` 表示 `www.wantching.site`。若同名记录已经指向其他网站，应调整为这里的目标；保留域名验证用的 TXT 记录。
+   `@` 表示 `wantching.site`，`www` 表示 `www.wantching.site`。本次 DNSPod 免费版对同主机、同类型、同线路的 A 记录限制为两条，因此实际保留上表两条，已经通过 GitHub 的 DNS 检查。
 
-4. 再手动运行一次 **Deploy Jekyll site to Pages**。流程会根据 GitHub Pages 的域名设置，自动把网页链接从临时网址切换到正式域名。
+   GitHub 官方还公布了 `185.199.110.153` 和 `185.199.111.153`。这里记录的是本项目在当前套餐下的实际配置，不能把两条写成所有 DNS 服务商通用的要求。
 
-5. 等域名检查和证书准备完成，在 GitHub Pages 设置中勾选 **Enforce HTTPS**，检查 <https://wantching.site> 能否正常访问。按上述配置，`www.wantching.site` 会转到 `wantching.site`。
+4. 绑定域名后已手动运行 **Deploy Jekyll site to Pages**，第 3 次运行成功。流程根据 GitHub Pages 的域名设置，把网页链接从临时网址切换到正式域名。以后修改域名设置时，再手动运行一次；日常文章更新由推送自动触发。
+
+5. 2026-11-09 复核：**Enforce HTTPS 已开启**；<https://wantching.site> 和笔记页通过 HTTPS 正常返回，`https://www.wantching.site` 会跳转到主域名。无需再重复执行首次验证和绑定步骤。
 
 以上是一次性设置。以后写文章、改笔记或更新时间线，只需要执行前面的日常发布命令。
 
