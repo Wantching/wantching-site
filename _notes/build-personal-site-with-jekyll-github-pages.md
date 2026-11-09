@@ -9,7 +9,7 @@ content_language: zh-CN
 
 这篇笔记整理一条适合个人博客、学习笔记和个人主页的建站路线：**在本地用 Markdown 写内容，由 Jekyll 生成网页，通过 GitHub Actions 自动发布到 GitHub Pages，再绑定自己的域名。**
 
-通用部分以 Windows、WSL Ubuntu、Jekyll 和 Minimal Mistakes 为例。已有 Linux 环境时，可以从安装 Ruby 开始。文中的 `YOUR_USER`、`personal-site` 和 `example.com` 是示例，操作时分别换成自己的 GitHub 用户名、项目名和实际注册的域名。平台菜单、套餐限制和依赖版本可能变化，遇到不一致时核对文中的官方资料。
+本文以 Windows、WSL Ubuntu、Jekyll 和 Minimal Mistakes 为例。已有 Linux 环境时，可以从安装 Ruby 开始。文中的 `YOUR_USER`、`personal-site` 和 `example.com` 是示例，操作时分别换成自己的 GitHub 用户名、项目名和实际注册的域名。平台菜单、套餐限制和依赖版本可能变化，遇到不一致时核对文中的官方资料。
 
 ## 目录
 
