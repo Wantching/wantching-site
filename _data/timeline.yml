@@ -2,9 +2,14 @@
 # 这里只维护手动选择的事件，与博客和笔记列表独立。
 # 可选字段：description（说明）、url（详情链接）、content_language（内容语言）。
 # title_i18n 沿用现有界面文案的翻译键，普通个人事件可省略。
-- date: "2026-11-08"
-  title: "开始搭建个人网站"
-  title_i18n: "timeline.site_started"
+- date: "2026-11-02"
+  title: "独自来到杭州"
+  title_i18n: "come to Hangzhou"
 
 - date: "2026-11-09"
   title: "第一篇博客"
+  title_i18n: "first blog"
+
+- date: "2026-11-08"
+  title: "开始搭建个人网站"
+  title_i18n: "timeline.site_started"
